@@ -19,7 +19,7 @@ public class Pessoa implements Serializable {
 	private String nome;
 	private String sobrenome;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	
