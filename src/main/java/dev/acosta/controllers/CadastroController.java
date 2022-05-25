@@ -1,11 +1,17 @@
 package dev.acosta.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import dev.acosta.repositories.PessoaRepository;
+
 @Controller
 public class CadastroController {
+	
+	@Autowired
+	private PessoaRepository pessoaRepository;
 
 	@RequestMapping(method=RequestMethod.GET, value="/cadastro-de-pessoa")
 	public String inicio() {
