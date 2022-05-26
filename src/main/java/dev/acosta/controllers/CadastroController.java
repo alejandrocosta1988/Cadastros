@@ -21,9 +21,9 @@ public class CadastroController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/salvar-pessoa")
-	public String salvar(Pessoa pessoa) {
+	public ModelAndView salvar(Pessoa pessoa) {
 		pessoaRepository.save(pessoa);
-		return "cadastro/cadastro-de-pessoa";
+		return pessoas();
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/lista-de-pessoas")
