@@ -1,6 +1,6 @@
 # Cadastros
 
-Cadastros é uma aplicação web desenvolvida para praticar desenvolvimento web utilizando SpringBoot. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome e idade) e salvá-los em um banco de dados PostGreSQL.
+Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web utilizando SpringBoot e mais alguns outros projetos do ecossistema Spring. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome e idade) e salvá-los em um banco de dados PostGreSQL.
 
 ## Tópicos praticados
 
@@ -9,7 +9,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - criação de projetos com estrutura maven via start.spring.io;
 - adição de dependências utilizando o arquivo `pom.xml`;
 - produção de páginas de navegação utilizando Thymeleaf;
-- persistência de dados utilizando JPA;
+- persistência de dados utilizando Spring Data JPA;
 - conexão com banco de dados PostGreSQL;
 - utilização de anotações na classe principal do projeto: `@EntityScan` (permite a criação automática de tabelas), 
 `@ComponentScan` (força o mapeamento das pastas indicadas - localização de Controller),
