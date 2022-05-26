@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -20,6 +20,28 @@
     <input type="number" name="idade" required>
     <input type="submit" value="Salvar">
   </form>
+  
+  <h2>Pessoas cadastradas</h2>
+  
+  <table>
+    
+    <thead>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Idade</th>
+    </thead>
+    
+    <tbody>
+      <tr th:each = "pessoa : ${pessoas}">
+        <td th:text = "${pessoa.id}"></td>
+        <td th:text = "${pessoa.nome}"></td>
+        <td th:text = "${pessoa.sobrenome}"></td>
+        <td th:text = "${pessoa.idade}"></td>
+      </tr>
+    </tbody>
+    
+  </table>
   
 </body>
 
