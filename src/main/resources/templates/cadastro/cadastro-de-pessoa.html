@@ -21,27 +21,31 @@
     <input type="submit" value="Salvar">
   </form>
   
-  <h2>Pessoas cadastradas</h2>
+  <section th:if="${pessoas != null}">
   
-  <table>
+    <h2>Pessoas cadastradas</h2>
+  
+    <table>
     
-    <thead>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>Idade</th>
-    </thead>
+      <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+      </thead>
     
-    <tbody>
-      <tr th:each = "pessoa : ${pessoas}">
-        <td th:text = "${pessoa.id}"></td>
-        <td th:text = "${pessoa.nome}"></td>
-        <td th:text = "${pessoa.sobrenome}"></td>
-        <td th:text = "${pessoa.idade}"></td>
-      </tr>
-    </tbody>
+      <tbody>
+        <tr th:each = "pessoa : ${pessoas}">
+          <td th:text = "${pessoa.id}"></td>
+          <td th:text = "${pessoa.nome}"></td>
+          <td th:text = "${pessoa.sobrenome}"></td>
+          <td th:text = "${pessoa.idade}"></td>
+        </tr>
+      </tbody>
     
-  </table>
+    </table>
+  
+  </section>
   
 </body>
 
