@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App de Cadastros</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-</head>
+<head th:insert="~{includes/head :: head}"></head>
 
 <body>
 
@@ -32,7 +26,6 @@
           </div>
           <div class="col s12 m4">
             <button class="btn waves-effect waves-light" type="submit">Salvar</button>
-<!--             <input type="submit" value="Salvar"> -->
           </div>
         </div>
       </form>
