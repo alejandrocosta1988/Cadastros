@@ -10,11 +10,11 @@
     <h1>Edição de dados</h1>
     
     <section class="row">
-      <form action="editar-pessoa" method="post" class="col s12" th:object="${pessoa}">
+      <form action="../../salvar-pessoa" method="post" class="col s12" th:object="${pessoa}">
         <div class="row">
           <div class="col s12 m1">
             <label>ID</label>
-            <input type="text" name="id" th:field="*{id}" disabled>
+            <input type="text" name="id" th:field="*{id}" readonly>
           </div>
           <div class="col s12 m5">
             <label>Nome</label>
