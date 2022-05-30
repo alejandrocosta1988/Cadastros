@@ -50,6 +50,7 @@
           <th>Sobrenome</th>
           <th>Idade</th>
           <th>Editar</th>
+          <th>Excluir</th>
         </thead>
     
         <tbody>
@@ -59,6 +60,7 @@
             <td th:text = "${pessoa.sobrenome}"></td>
             <td th:text = "${pessoa.idade}"></td>
             <td><a th:href="@{/editar-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light"><i class="material-icons">edit</i></a></td>
+            <td><a th:href="@{/excluir-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light red lighten-2"><i class="material-icons">delete</i></a></td>
           </tr>
         </tbody>
     
