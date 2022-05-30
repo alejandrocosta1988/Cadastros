@@ -2,6 +2,11 @@
 
 Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web utilizando SpringBoot e mais alguns outros projetos do ecossistema Spring. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome e idade) e salvá-los em um banco de dados PostGreSQL.
 
+As funcionalidades implementadas são: 
+1. Cadastro de uma nova pessoa via preenchimento e envio de dados de um formulário;
+2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
+3. Edição de dados previamente cadastrados para uma pessoa.
+
 ## Tópicos praticados
 
 Durante o desenvolvimento do projeto foi possível ter contato e praticar:
