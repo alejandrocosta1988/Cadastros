@@ -2,6 +2,8 @@ package dev.acosta.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +35,18 @@ public class CadastroController {
 		
 		Iterable<Pessoa> pessoas = pessoaRepository.findAll();
 		modelAndView.addObject("pessoas", pessoas);
+		
+		return modelAndView;
+		
+	}
+	
+	@GetMapping("/editar-pessoa/{id}")
+	public ModelAndView editarPessoa(@PathVariable("id") Long id) {
+		
+		Pessoa pessoa = pessoaRepository.findById(id).get();
+		
+		ModelAndView modelAndView = new ModelAndView("cadastro/cadastro-de-pessoa");
+		modelAndView.addObject("pessoa", pessoa);
 		
 		return modelAndView;
 		
