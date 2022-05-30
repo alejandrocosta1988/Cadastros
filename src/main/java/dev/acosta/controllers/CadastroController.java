@@ -45,7 +45,7 @@ public class CadastroController {
 		
 		Pessoa pessoa = pessoaRepository.findById(id).get();
 		
-		ModelAndView modelAndView = new ModelAndView("cadastro/cadastro-de-pessoa");
+		ModelAndView modelAndView = new ModelAndView("cadastro/editar-pessoa");
 		modelAndView.addObject("pessoa", pessoa);
 		
 		return modelAndView;
