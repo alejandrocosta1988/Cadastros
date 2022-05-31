@@ -5,7 +5,8 @@ Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web util
 As funcionalidades implementadas são: 
 1. Cadastro de uma nova pessoa via preenchimento e envio de dados de um formulário;
 2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
-3. Edição de dados previamente cadastrados para uma pessoa.
+3. Edição de dados previamente cadastrados para uma pessoa;
+4. Pesquisa pelo primeiro nome da pessoa cadastrada;
 
 ## Tópicos praticados
 
@@ -23,6 +24,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - criação de repositories com `@Repository`;
 - criação de controllers com `@Controller`;
 - geração automática de tabelas no banco de dados utilizando `@Entity` em objetos;
+- queries personalizadas em repositórios utilizando `@Query`;
 - vários outros pontos.
 
 ### Estrutura do backend
