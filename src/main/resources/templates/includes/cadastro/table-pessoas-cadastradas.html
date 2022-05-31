@@ -16,7 +16,7 @@
         <tbody>
           <tr th:each = "pessoa : ${pessoas}">
             <td th:text = "${pessoa.id}"></td>
-            <td th:text = "${pessoa.nome}"></td>
+            <td><a th:text = "${pessoa.nome}" th:href="@{/detalhes/{id}/(id=${pessoa.id})}"></a></td>
             <td th:text = "${pessoa.sobrenome}"></td>
             <td th:text = "${pessoa.idade}"></td>
             <td><a th:href="@{/editar-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light"><i class="material-icons">edit</i></a></td>
