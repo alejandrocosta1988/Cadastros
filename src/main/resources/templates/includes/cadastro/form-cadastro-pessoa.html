@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+      <form action="salvar-pessoa" method="post" class="col s12" th:fragment="register-form">
+        <div class="row">
+          <div class="col s12 m5">
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+          </div>
+          <div class="col s12 m5">
+            <label>Sobrenome</label>
+            <input type="text" name="sobrenome" required>
+          </div>
+          <div class="col s12 m2">
+            <label>Idade</label>
+            <input type="number" name="idade" required>
+          </div>
+          <div class="col s12 m4">
+            <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i>Salvar</button>
+          </div>
+        </div>
+      </form>
+    
+</body>
+</html>
