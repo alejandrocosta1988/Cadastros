@@ -72,4 +72,15 @@ public class CadastroController {
 		
 	}
 	
+	@GetMapping("/detalhes/{id}")
+	public ModelAndView detalhes(@PathVariable("id") Long id) {
+		
+		Pessoa pessoa = pessoaRepository.findById(id).get();
+		ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
+		modelAndView.addObject("pessoa", pessoa);
+		
+		return modelAndView;
+		
+	}
+	
 }
