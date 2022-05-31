@@ -11,25 +11,9 @@
     
     <section class="row" th:insert="~{includes/cadastro/form-cadastro-pessoa :: register-form}"></section>
     
+    <section class="row" th:insert="~{includes/cadastro/form-buscar-pessoa :: search-by-name-form}"></section>
+    
     <a href="/lista-de-pessoas" class="waves-effect waves-teal btn-flat"><i class="material-icons left">people</i>Ver lista completa</a>
-    
-    <section class="row">
-    
-      <h5>Pesquisar cadastro</h5>
-    
-      <form action="pesquisar-pessoa" method="post" class="col s12">
-        <div class="row">
-          <div class="col s12 m6">
-            <label>Pesquisar por nome:</label>
-            <input type="text" name="nome" required>
-          </div>
-          <div class="col s12 m6">
-            <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">search</i>Pesquisar</button>
-          </div>
-        </div>
-      </form>
-      
-    </section>
   
   </div>
 
