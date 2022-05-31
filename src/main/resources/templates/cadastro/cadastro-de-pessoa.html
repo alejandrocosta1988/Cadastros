@@ -54,37 +54,9 @@
   </div>
 
 
-  <div class="container">
+  <div class="container" th:if="${pessoas != null}">
   
-    <section th:if="${pessoas != null}">
-  
-      <h2>Pessoas cadastradas</h2>
-  
-      <table class="highlight">
-    
-        <thead>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Sobrenome</th>
-          <th>Idade</th>
-          <th>Editar</th>
-          <th>Excluir</th>
-        </thead>
-    
-        <tbody>
-          <tr th:each = "pessoa : ${pessoas}">
-            <td th:text = "${pessoa.id}"></td>
-            <td th:text = "${pessoa.nome}"></td>
-            <td th:text = "${pessoa.sobrenome}"></td>
-            <td th:text = "${pessoa.idade}"></td>
-            <td><a th:href="@{/editar-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light"><i class="material-icons">edit</i></a></td>
-            <td><a th:href="@{/excluir-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light red lighten-2"><i class="material-icons">delete</i></a></td>
-          </tr>
-        </tbody>
-    
-      </table>
-  
-    </section>
+    <section th:insert="~{includes/cadastro/table-pessoas-cadastradas :: table-pessoas}"></section>
   
   </div>
   

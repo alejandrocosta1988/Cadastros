@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<body>
+
+    <section th:fragment="table-pessoas">
+  
+      <h2>Pessoas cadastradas</h2>
+  
+      <table class="highlight">
+    
+        <thead>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Idade</th>
+          <th>Editar</th>
+          <th>Excluir</th>
+        </thead>
+    
+        <tbody>
+          <tr th:each = "pessoa : ${pessoas}">
+            <td th:text = "${pessoa.id}"></td>
+            <td th:text = "${pessoa.nome}"></td>
+            <td th:text = "${pessoa.sobrenome}"></td>
+            <td th:text = "${pessoa.idade}"></td>
+            <td><a th:href="@{/editar-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light"><i class="material-icons">edit</i></a></td>
+            <td><a th:href="@{/excluir-pessoa/{id}/(id=${pessoa.id})}" class="btn waves-effect waves-light red lighten-2"><i class="material-icons">delete</i></a></td>
+          </tr>
+        </tbody>
+    
+      </table>
+  
+    </section>
+
+</body>
+</html>
