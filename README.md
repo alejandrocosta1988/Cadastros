@@ -7,6 +7,7 @@ As funcionalidades implementadas são:
 2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
 3. Edição de dados previamente cadastrados para uma pessoa;
 4. Pesquisa pelo primeiro nome da pessoa cadastrada;
+5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível se cadastrar seu número de telefone.
 
 ## Tópicos praticados
 
