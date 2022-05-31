@@ -3,8 +3,18 @@
   <head th:insert="~{includes/head :: head}"></head>
 <body>
 
-  <h1>Dados informados</h1>
+  <div class="container">
+  
+    <h1>Dados informados</h1>
+    
+    <h6>Nome: <span th:text="${pessoa.nome}"></span></h6>
+    <h6>Sobrenome: <span th:text="${pessoa.sobrenome}"></span></h6>
+    <h6>Idade: <span th:text="${pessoa.idade}"></span></h6>
+    
+    <a href="/lista-de-pessoas" class="btn"><i class="material-icons left">arrow_back</i>Voltar</a>
 
+  </div>
+  
   <footer th:insert="~{includes/footer :: footer}"></footer>
   
   <script type="text/javascript" src="js/materialize.min.js"></script>
