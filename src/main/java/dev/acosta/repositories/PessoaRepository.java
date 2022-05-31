@@ -14,7 +14,7 @@ import dev.acosta.model.Pessoa;
 @Transactional
 public interface PessoaRepository extends CrudRepository<Pessoa, Long> {
 
-	@Query("SELECT p FROM Pessoa p WHERE p.nome LIKE CONCAT('%', :nome, '%')")
+	@Query("SELECT pessoa FROM Pessoa pessoa WHERE pessoa.nome LIKE CONCAT('%', :nome, '%')")
 	List<Pessoa> findPessoaByNome(@Param("nome") String nome);
 	
 }
