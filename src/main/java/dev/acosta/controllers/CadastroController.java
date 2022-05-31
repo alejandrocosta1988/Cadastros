@@ -2,11 +2,12 @@ package dev.acosta.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.acosta.model.Pessoa;
@@ -58,6 +59,16 @@ public class CadastroController {
 		
 		pessoaRepository.deleteById(id);
 		return pessoas();
+		
+	}
+	
+	@PostMapping("/pesquisar-pessoa")
+	public ModelAndView pesquisar(@RequestParam("nome") String nome) {
+		
+		ModelAndView modelAndView = new ModelAndView("cadastro/cadastro-de-pessoa");
+		modelAndView.addObject("pessoas", pessoaRepository.findPessoaByNome(nome));
+		
+		return modelAndView;
 		
 	}
 	
