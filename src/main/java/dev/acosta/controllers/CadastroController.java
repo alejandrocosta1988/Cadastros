@@ -1,5 +1,7 @@
 package dev.acosta.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,8 +83,11 @@ public class CadastroController {
 	public ModelAndView detalhes(@PathVariable("id") Long id) {
 		
 		Pessoa pessoa = pessoaRepository.findById(id).get();
+		List<Telefone> telefones = telefoneRepository.getTelefones(id);
+		
 		ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
 		modelAndView.addObject("pessoa", pessoa);
+		modelAndView.addObject("telefones", telefones);
 		
 		return modelAndView;
 		
@@ -94,9 +99,7 @@ public class CadastroController {
 		Pessoa pessoa = pessoaRepository.findById(pessoaId).get();
 		telefone.setPessoa(pessoa);
 		telefoneRepository.save(telefone);
-		ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
-		modelAndView.addObject("pessoa", pessoa);
-		return modelAndView;
+		return detalhes(pessoaId);
 		
 	}
 	
