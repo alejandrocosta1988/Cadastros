@@ -26,6 +26,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - criação de controllers com `@Controller`;
 - geração automática de tabelas no banco de dados utilizando `@Entity` em objetos;
 - queries personalizadas em repositórios utilizando `@Query`;
+- anotações de relações entre tabelas (`@OneToMany`, `@ManyToOne`);
 - vários outros pontos.
 
 ### Estrutura do backend
@@ -34,4 +35,10 @@ O backend do projeto está dividido em três pacotes: `model`, `controllers` e `
 
 ### Estrutura do frontend
 
-O frontent está construído utilizando puro HTML5. Atualmente existe uma página inicial (index.html) e uma página de cadastro de pessoas (`cadastro-de-pessoa.html`). A página de cadastro de pessoas está estruturada com um formulário que captura todos os dados para criar um objeto do tipo `Pessoa`, com excessão do campo `id`, o qual é gerado automaticamente. 
+O frontent está construído utilizando Thymeleaf. A estilização das páginas foi realizada com Materialize CSS, já que o foco da construção da aplicação não era em praticar desenvolvimento frontend. Atualmente existe uma página inicial (index.html), uma página de cadastro de pessoas (`cadastro-de-pessoa.html`) e uma página de detalhes da pessoa selecionada (detalhes/id). 
+
+A página de cadastro de pessoas está estruturada com um formulário que captura dados para criar um objeto do tipo `Pessoa`, com excessão do campo `id`, o qual é gerado automaticamente.
+
+Na página de cadastro de pessoas é possível solicitar a visualização de todas as pessoas cadastradas no banco de dados. A apresentação das pessoas cadastradas é realizada através de uma tabela carregada abaixo do formulário de cadastro de uma nova pessoa. Além disso, existe uma opção de realizar pesquisa pelo primeiro nome de uma pessoa. Isso permite a verificação e fácil localização de uma pessoa previamente cadastrada.
+
+O primeiro nome de cada pessoa cadastrada é exibido na tabela de visualização como um link para a página de detalhes dessa pessoa. Nessa página é possível realizar o cadastro do telefone da pessoa selecionada e visualizar todos os dados registrados.
