@@ -15,8 +15,26 @@
       <h4>Cadastrar telefone</h4>
       <form action="" method="post" class="col s12">
         <div class="row">
-          <label>Número</label>
-          <input type="tel">
+          <div class="col s12 m9">
+            <label>Número</label>
+            <input type="tel" name="numero">
+          </div>
+          <div class="col s12 m3">
+            <label>Tipo</label>
+            <p>
+              <label>
+                <input type="radio" name="tipo" value="celular">
+                <span>Celular</span>
+              </label>
+              <label>
+                <input type="radio" name="tipo" value="residencial">
+                <span>Residencial</span>
+              </label>
+            </p>
+          </div>
+          <div class="col s12">
+            <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">save</i>Salvar</button>
+          </div>
         </div>
       </form>
       
