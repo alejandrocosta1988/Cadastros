@@ -23,9 +23,9 @@
         </thead>
         
         <tbody>
-          <tr>
-            <td>Tipo do telefone</td>
-            <td>Número do telefone</td>
+          <tr th:each="telefone : ${telefones}">
+            <td th:text="${telefone.tipo}"></td>
+            <td th:text="${telefone.numero}"></td>
           </tr>
         </tbody>
         
