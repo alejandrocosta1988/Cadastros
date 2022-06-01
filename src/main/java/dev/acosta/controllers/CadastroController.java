@@ -11,13 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.acosta.model.Pessoa;
+import dev.acosta.model.Telefone;
 import dev.acosta.repositories.PessoaRepository;
+import dev.acosta.repositories.TelefoneRepository;
 
 @Controller
 public class CadastroController {
 	
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private TelefoneRepository telefoneRepository;
 
 	@RequestMapping(method=RequestMethod.GET, value="/cadastro-de-pessoa")
 	public String inicio() {
@@ -79,6 +84,18 @@ public class CadastroController {
 		ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
 		modelAndView.addObject("pessoa", pessoa);
 		
+		return modelAndView;
+		
+	}
+	
+	@PostMapping("/detalhes/{id}/registrarTelefone")
+	public ModelAndView registrarTelefone(@PathVariable("id") Long pessoaId, Telefone telefone) {
+		
+		Pessoa pessoa = pessoaRepository.findById(pessoaId).get();
+		telefone.setPessoa(pessoa);
+		telefoneRepository.save(telefone);
+		ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
+		modelAndView.addObject("pessoa", pessoa);
 		return modelAndView;
 		
 	}
