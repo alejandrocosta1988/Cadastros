@@ -110,7 +110,23 @@ public class CadastroController {
 	}
 	
 	@PostMapping("/detalhes/{id}/registrarTelefone")
-	public ModelAndView registrarTelefone(@PathVariable("id") Long pessoaId, Telefone telefone) {
+	public ModelAndView registrarTelefone(@PathVariable("id") Long pessoaId,@Valid Telefone telefone, BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			
+			ModelAndView modelAndView = new ModelAndView("cadastro/detalhes");
+			Pessoa pessoa = pessoaRepository.findById(pessoaId).get();
+			List<Telefone> telefones = telefoneRepository.getTelefones(pessoaId);
+			List<String> mensagensDeErros = new ArrayList<>();
+			for (ObjectError objectError : bindingResult.getAllErrors()) {
+				mensagensDeErros.add(objectError.getDefaultMessage());
+			}
+			modelAndView.addObject("mensagensDeErros", mensagensDeErros);
+			modelAndView.addObject("pessoa", pessoa);
+			modelAndView.addObject("telefones", telefones);
+			return modelAndView;
+			
+		}
 		
 		Pessoa pessoa = pessoaRepository.findById(pessoaId).get();
 		telefone.setPessoa(pessoa);
