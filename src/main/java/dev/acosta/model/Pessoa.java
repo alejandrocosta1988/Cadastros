@@ -22,7 +22,7 @@ public class Pessoa implements Serializable {
 	private String sobrenome;
 	private int idade;
 	
-	@OneToMany(mappedBy="pessoa")
+	@OneToMany(mappedBy="pessoa", orphanRemoval=true)
 	private List<Telefone> telefones;
 	
 	public Long getId() {
