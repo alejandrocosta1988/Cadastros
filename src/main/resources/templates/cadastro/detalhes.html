@@ -20,12 +20,14 @@
         <thead>
           <th>Tipo</th>
           <th>Número</th>
+          <th>Excluir</th>
         </thead>
         
         <tbody>
           <tr th:each="telefone : ${telefones}">
             <td th:text="${telefone.tipo}"></td>
             <td th:text="${telefone.numero}"></td>
+            <td><a th:href="@{/detalhes/{pessoaId}/excluirTelefone/{telefoneId}(pessoaId=${pessoa.id}, telefoneId=${telefone.id})}"><i class="material-icons">delete</i></a></td>
           </tr>
         </tbody>
         
