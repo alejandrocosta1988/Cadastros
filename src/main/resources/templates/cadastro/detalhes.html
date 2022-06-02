@@ -42,14 +42,14 @@
       <form th:action="@{/detalhes/{id}/registrarTelefone(id=${pessoa.id})}" method="post" class="col s12">
         <div class="row">
           <div class="col s12 m9">
-            <label>Número</label>
-            <input type="tel" name="numero">
+            <label>Número (xx123456789)</label>
+            <input title="Insira seu número de telefone utilizando apenas dígitos e incluindo o código de área" type="number" name="numero" required>
           </div>
           <div class="col s12 m3">
             <label>Tipo</label>
             <p>
               <label>
-                <input type="radio" name="tipo" value="celular">
+                <input type="radio" name="tipo" value="celular" checked>
                 <span>Celular</span>
               </label>
               <label>
