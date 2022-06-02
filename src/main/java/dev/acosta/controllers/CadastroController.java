@@ -103,4 +103,14 @@ public class CadastroController {
 		
 	}
 	
+	@GetMapping("detalhes/{pessoaId}/excluirTelefone/{telefoneId}")
+	public ModelAndView excluirTelefone(@PathVariable("pessoaId") Long pessoaId, @PathVariable("telefoneId") Long telefoneId) {
+		
+		telefoneRepository.deleteById(telefoneId);
+		return detalhes(pessoaId);
+		
+	}
+	
+	
+	
 }
