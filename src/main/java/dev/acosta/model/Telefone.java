@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Telefone {
@@ -13,7 +15,12 @@ public class Telefone {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull(message="Informe um número de telefone.")
+	@NotEmpty(message="O número de telefone não pode ser vazio.")
 	private String numero;
+	
+	@NotNull(message="Informe um tipo de telefone.")
+	@NotEmpty(message="O tipo de telefone deve ser informado.")
 	private String tipo;
 	
 	@ManyToOne
