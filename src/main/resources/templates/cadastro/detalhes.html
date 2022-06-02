@@ -43,11 +43,11 @@
         <p th:text="${mensagemDeErro}"></p>
       </div>
     
-      <form th:action="@{/detalhes/{id}/registrarTelefone(id=${pessoa.id})}" method="post" class="col s12">
+      <form th:action="@{/detalhes/{id}/registrarTelefone(id=${pessoa.id})}" method="post" class="col s12" onsubmit="return validarNumero()">
         <div class="row">
           <div class="col s12 m9">
             <label>Número (xx123456789)</label>
-            <input title="Insira seu número de telefone utilizando apenas dígitos e incluindo o código de área" type="number" name="numero" required>
+            <input title="Insira seu número de telefone utilizando apenas dígitos e incluindo o código de área" type="number" name="numero" id="numero-de-telefone">
           </div>
           <div class="col s12 m3">
             <label>Tipo</label>
@@ -77,5 +77,6 @@
   <footer th:insert="~{includes/footer :: footer}"></footer>
   
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/detalhes.js"></script>
 </body>
 </html>
