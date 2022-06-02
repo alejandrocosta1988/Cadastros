@@ -28,6 +28,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - queries personalizadas em repositórios utilizando `@Query`;
 - anotações de relações entre tabelas (`@OneToMany`, `@ManyToOne`);
 - validações no lado do servidor utilizando `@NotNull`, `@NotEmpty`, `@Min`, `@Valid`;
+- validações no frontend utilizando JavaScript para evitar utilização de recursos de processamento no backend;
 - vários outros pontos.
 
 ### Estrutura do backend
