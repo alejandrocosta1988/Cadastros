@@ -29,8 +29,6 @@ public class Pessoa implements Serializable {
 	@NotEmpty(message="O sobrenome da pessoa não pode estar vazio.")
 	private String sobrenome;
 	
-	@NotNull(message="Adicione a idade da pessoa")
-	@NotNull(message="A idade da pessoa não pode estar vazia.")
 	@Min(value=18, message="Somente pessoas maiores de idade podem ser cadastradas.")
 	private int idade;
 	

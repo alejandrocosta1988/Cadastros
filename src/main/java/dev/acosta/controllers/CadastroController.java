@@ -1,9 +1,14 @@
 package dev.acosta.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +37,18 @@ public class CadastroController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/salvar-pessoa")
-	public ModelAndView salvar(Pessoa pessoa) {
+	public ModelAndView salvar(@Valid Pessoa pessoa, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			
+			ModelAndView modelAndView = new ModelAndView("cadastro/cadastro-de-pessoa");
+			List<String> mensagensDeErro = new ArrayList<>();
+			for (ObjectError objectError : bindingResult.getAllErrors()) {
+				mensagensDeErro.add(objectError.getDefaultMessage()); //mensagem registrada na anotação de validação em Pessoa
+			}
+			modelAndView.addObject("mensagensDeErro", mensagensDeErro);
+			return modelAndView;
+		}
+		
 		pessoaRepository.save(pessoa);
 		return pessoas();
 	}

@@ -9,6 +9,10 @@
   
     <h1>Cadastre uma pessoa em nosso banco de dados</h1>
     
+    <div th:each="mensagem : ${mensagensDeErro}">
+      <p th:text="${mensagem}"></p>
+    </div>
+    
     <section class="row" th:insert="~{includes/cadastro/form-cadastro-pessoa :: register-form}"></section>
     
     <section class="row" th:insert="~{includes/cadastro/form-buscar-pessoa :: search-by-name-form}"></section>
