@@ -3,11 +3,11 @@
 Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web utilizando SpringBoot e mais alguns outros projetos do ecossistema Spring. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome e idade) e salvá-los em um banco de dados PostGreSQL.
 
 As funcionalidades implementadas são: 
-1. Cadastro de uma nova pessoa via preenchimento e envio de dados de um formulário;
+1. Cadastro de uma nova pessoa via preenchimento e envio de dados de um formulário (a pessoa deve ser maior de idade);
 2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
 3. Edição de dados previamente cadastrados para uma pessoa;
 4. Pesquisa pelo primeiro nome da pessoa cadastrada;
-5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível se cadastrar seu número de telefone.
+5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível visualizar, cadastrar ou excluir números de telefone.
 
 ## Tópicos praticados
 
@@ -27,11 +27,16 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - geração automática de tabelas no banco de dados utilizando `@Entity` em objetos;
 - queries personalizadas em repositórios utilizando `@Query`;
 - anotações de relações entre tabelas (`@OneToMany`, `@ManyToOne`);
+- validações no lado do servidor utilizando `@NotNull`, `@NotEmpty`, `@Min`, `@Valid`;
 - vários outros pontos.
 
 ### Estrutura do backend
 
-O backend do projeto está dividido em três pacotes: `model`, `controllers` e `repositories`. Os nomes dos pacotes já explicam o conteúdo de cada um deles.
+O backend do projeto está dividido em três pacotes: `model`, `controllers` e `repositories`.
+
+No pacote `model`, estão definidas as classes do modelo da aplicação: `Pessoa` e `Telefone`.
+No pacote `controllers`, estão definidos os controladores da aplicação: `IndexController` e `CadastroController`.
+No pacote `repositories` estão definidos os repositórios da aplicação: `PessoaRepository` e `TelefoneRepository`.
 
 ### Estrutura do frontend
 
