@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -18,8 +21,17 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull(message="Adicione o nome da pessoa.")
+	@NotEmpty(message="O nome da pessoa não pode estar vazio.")
 	private String nome;
+	
+	@NotNull(message="Adicione o sobrenome da pessoa.")
+	@NotEmpty(message="O sobrenome da pessoa não pode estar vazio.")
 	private String sobrenome;
+	
+	@NotNull(message="Adicione a idade da pessoa")
+	@NotNull(message="A idade da pessoa não pode estar vazia.")
+	@Min(value=18, message="Somente pessoas maiores de idade podem ser cadastradas.")
 	private int idade;
 	
 	@OneToMany(mappedBy="pessoa", orphanRemoval=true)
