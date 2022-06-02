@@ -38,6 +38,10 @@
     <section class="row">
     
       <h4>Cadastrar telefone</h4>
+      
+      <div th:each="mensagemDeErro : ${mensagensDeErros}">
+        <p th:text="${mensagemDeErro}"></p>
+      </div>
     
       <form th:action="@{/detalhes/{id}/registrarTelefone(id=${pessoa.id})}" method="post" class="col s12">
         <div class="row">
