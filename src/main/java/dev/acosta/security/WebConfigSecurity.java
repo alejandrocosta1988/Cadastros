@@ -19,7 +19,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
 		http.csrf()
 			.disable() //desativa configurações padrão de memória
 			.authorizeRequests() //permite e restrição de acessos
-			.antMatchers(HttpMethod.GET,  "/", "/css/**").permitAll() //qualquer usuário pode acessar a página de index
+			.antMatchers(HttpMethod.GET,  "/").permitAll() //qualquer usuário pode acessar a página de index
 			.anyRequest().authenticated()
 			.and().formLogin().permitAll() //permite qualquer usuário
 			.and().logout() //mapeia URL de logout e invalida usuário autenticado
@@ -32,6 +32,11 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
 			.withUser("acosta")
 			.password("123")
 			.roles("ADMIN");
+	}
+	
+	@Override
+	public void configure(WebSecurity web) {
+		web.ignoring().antMatchers("/css/**");
 	}
 	
 	
