@@ -1,11 +1,16 @@
 package dev.acosta.model;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +27,12 @@ public class Usuario implements UserDetails {
 	private String login;
 	private String senha;
 
+	@OneToMany(fetch = FetchType.EAGER) //carrega os papéis automaticamente
+	@JoinTable(name = "usuarios_role", //cria tabela de acesso do usuário
+	           joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id", table = "usuario"), //captura o id da tabela usuario e armazena em uma coluna chamada usuario_id
+	           inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id", table = "role")) 
+	private List<Role> roles;
+	
 	public Long getId() {
 		return id;
 	}
