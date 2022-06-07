@@ -7,7 +7,9 @@ As funcionalidades implementadas são:
 2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
 3. Edição de dados previamente cadastrados para uma pessoa;
 4. Pesquisa pelo primeiro nome da pessoa cadastrada;
-5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível visualizar, cadastrar ou excluir números de telefone.
+5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível visualizar, cadastrar ou excluir números de telefone;
+6. O acesso a aplicação requer autenticação de usuário;
+7. Somente usuários com papel de administrador podem cadastrar novas pessoas no banco de dados.
 
 ## Tópicos praticados
 
@@ -29,7 +31,9 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - anotações de relações entre tabelas (`@OneToMany`, `@ManyToOne`);
 - validações no lado do servidor utilizando `@NotNull`, `@NotEmpty`, `@Min`, `@Valid`;
 - validações no frontend utilizando JavaScript para evitar utilização de recursos de processamento no backend;
-- vários outros pontos.
+- implementação de segurança com Spring Security;
+- implementação de papéis de usuários com Spring Security;
+- dentre outros.
 
 ### Estrutura do backend
 
