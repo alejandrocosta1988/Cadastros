@@ -13,7 +13,7 @@
       <p th:text="${mensagem}"></p>
     </div>
     
-    <section class="row" th:insert="~{includes/cadastro/form-cadastro-pessoa :: register-form}"></section>
+    <section class="row" th:insert="~{includes/cadastro/form-cadastro-pessoa :: register-form}" sec:authorize="hasRole('ADMIN')"></section>
     
     <section class="row" th:insert="~{includes/cadastro/form-buscar-pessoa :: search-by-name-form}"></section>
     
