@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{includes/head :: head}"></head>
+
+<body>
+  
+  <section class="container">
+  
+    <h1>Página customizada de login</h1>
+    
+    <div th:if="${param.error}">Nome de usuário inválido</div>
+    <div th:if="${param.logout}">Logout bem sucedido</div>
+    
+    <div class="col s12">
+  
+      <form th:action="@{/login}" method="post">
+        <div class="row">
+          <div class="col s12 m6">
+            <label>Nome de usuário</label>
+            <input type="text" name="username">
+          </div>
+          <div class="col s12 m6">
+            <label>Senha</label>
+            <input type="password" name="password">
+          </div>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light">Entrar</button>
+      </form>
+      
+    </div>
+    
+  </section>
+  
+</body>
+</html>
