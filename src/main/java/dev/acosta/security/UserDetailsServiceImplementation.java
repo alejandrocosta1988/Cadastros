@@ -1,6 +1,9 @@
 package dev.acosta.security;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,6 +13,7 @@ import dev.acosta.model.Usuario;
 import dev.acosta.repositories.UsuarioRepository;
 
 @Service
+@Transactional
 public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	@Autowired
@@ -22,7 +26,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 		if (usuario == null ) {
 			throw new UsernameNotFoundException("Usuário não encontrado.");
 		}
-		return usuario;
+		return new User(usuario.getLogin(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
 	}
 
 }
