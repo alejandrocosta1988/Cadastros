@@ -35,40 +35,7 @@
       
     </section>
     
-    <section class="row">
-    
-      <h4>Cadastrar telefone</h4>
-      
-      <div th:each="mensagemDeErro : ${mensagensDeErros}">
-        <p th:text="${mensagemDeErro}"></p>
-      </div>
-    
-      <form th:action="@{/detalhes/{id}/registrarTelefone(id=${pessoa.id})}" method="post" class="col s12" onsubmit="return validarNumero()">
-        <div class="row">
-          <div class="col s12 m9">
-            <label>Número (xx123456789)</label>
-            <input title="Insira seu número de telefone utilizando apenas dígitos e incluindo o código de área" type="number" name="numero" id="numero-de-telefone">
-          </div>
-          <div class="col s12 m3">
-            <label>Tipo</label>
-            <p>
-              <label>
-                <input type="radio" name="tipo" value="celular" checked>
-                <span>Celular</span>
-              </label>
-              <label>
-                <input type="radio" name="tipo" value="residencial">
-                <span>Residencial</span>
-              </label>
-            </p>
-          </div>
-          <div class="col s12">
-            <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">save</i>Salvar</button>
-          </div>
-        </div>
-      </form>
-      
-    </section>
+    <section class="row" th:insert="~{includes/cadastro/form-cadastro-telefone :: telefone-form}"></section>
     
     <a href="/lista-de-pessoas" class="btn"><i class="material-icons left">arrow_back</i>Voltar</a>
 
