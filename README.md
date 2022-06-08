@@ -33,6 +33,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - validações no frontend utilizando JavaScript para evitar utilização de recursos de processamento no backend;
 - implementação de segurança com Spring Security;
 - implementação de papéis de usuários com Spring Security;
+- apresentação ou ocultamento de partes de uma estrutura em html com base no papel do usuário que está logado no sistema;
 - dentre outros.
 
 ### Estrutura do backend
@@ -45,10 +46,10 @@ No pacote `repositories` estão definidos os repositórios da aplicação: `Pess
 
 ### Estrutura do frontend
 
-O frontent está construído utilizando Thymeleaf. A estilização das páginas foi realizada com Materialize CSS, já que o foco da construção da aplicação não era em praticar desenvolvimento frontend. Atualmente existe uma página inicial (index.html), uma página de cadastro de pessoas (`cadastro-de-pessoa.html`) e uma página de detalhes da pessoa selecionada (detalhes/id). 
+O frontent está construído utilizando Thymeleaf. A estilização das páginas foi realizada com Materialize CSS, já que o foco da construção da aplicação não era em praticar desenvolvimento frontend. Atualmente existe uma página inicial (index.html), uma página de cadastro de pessoas (`cadastro-de-pessoa.html`) e uma página de detalhes da pessoa selecionada (detalhes/id).
 
-A página de cadastro de pessoas está estruturada com um formulário que captura dados para criar um objeto do tipo `Pessoa`, com excessão do campo `id`, o qual é gerado automaticamente.
+A página de cadastro de pessoas está estruturada com um formulário que captura dados para criar um objeto do tipo `Pessoa`, com excessão do campo `id`, o qual é gerado automaticamente. Esse formulário só é apresentado se o usuário logado no sistema possui papel de administrador. Caso contrário, o formulário não será exibido.
 
-Na página de cadastro de pessoas é possível solicitar a visualização de todas as pessoas cadastradas no banco de dados. A apresentação das pessoas cadastradas é realizada através de uma tabela carregada abaixo do formulário de cadastro de uma nova pessoa. Além disso, existe uma opção de realizar pesquisa pelo primeiro nome de uma pessoa. Isso permite a verificação e fácil localização de uma pessoa previamente cadastrada.
+Na página de cadastro de pessoas é possível solicitar a visualização de todas as pessoas cadastradas no banco de dados. A apresentação das pessoas cadastradas é realizada através de uma tabela carregada abaixo do formulário de cadastro de uma nova pessoa. Além disso, existe uma opção de realizar pesquisa pelo primeiro nome de uma pessoa. Isso permite a verificação e fácil localização de uma pessoa previamente cadastrada. Se o usuário logado no sistema não tiver papel de administrador, essas duas serão as únicas opções possíveis de interação com o sistema.
 
-O primeiro nome de cada pessoa cadastrada é exibido na tabela de visualização como um link para a página de detalhes dessa pessoa. Nessa página é possível realizar o cadastro do telefone da pessoa selecionada e visualizar todos os dados registrados.
+O primeiro nome de cada pessoa cadastrada é exibido na tabela de visualização como um link para a página de detalhes dessa pessoa. Nessa página é possível realizar o cadastro do telefone da pessoa selecionada e visualizar todos os dados registrados. Usuários que não são administradores podem acessar a página de detalhes dos usuários e alterar os dados. Eles só não podem registrar novas pessoas no banco de dados.
