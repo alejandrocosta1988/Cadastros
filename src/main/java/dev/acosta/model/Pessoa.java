@@ -35,6 +35,9 @@ public class Pessoa implements Serializable {
 	@OneToMany(mappedBy="pessoa", orphanRemoval=true)
 	private List<Telefone> telefones;
 	
+	@OneToMany(mappedBy="pessoa", orphanRemoval=true)
+	private List<Endereco> enderecos;
+	
 	public Long getId() {
 		return id;
 	}
