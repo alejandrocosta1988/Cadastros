@@ -1,13 +1,13 @@
 # Cadastros
 
-Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web utilizando SpringBoot e mais alguns outros projetos do ecossistema Spring. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome e idade) e salvá-los em um banco de dados PostGreSQL.
+Cadastros é uma aplicação desenvolvida para praticar desenvolvimento web utilizando SpringBoot e mais alguns outros projetos do ecossistema Spring. A aplicação consiste em receber dados sobre pessoas (nome, sobrenome, idade, endereço e contato) e salvá-los em um banco de dados PostGreSQL.
 
 As funcionalidades implementadas são: 
 1. Cadastro de uma nova pessoa via preenchimento e envio de dados de um formulário (a pessoa deve ser maior de idade);
 2. Apresentação das pessoas cadastradas em uma tabela quando solicitado pelo usuário ou após realização de cadastro de novo usuário;
 3. Edição de dados previamente cadastrados para uma pessoa;
 4. Pesquisa pelo primeiro nome da pessoa cadastrada;
-5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível visualizar, cadastrar ou excluir números de telefone;
+5. Cada pessoa cadastrada possui uma página de detalhes, onde é possível visualizar, cadastrar ou excluir números de telefone de contato e o endereço das pessoas;
 6. O acesso a aplicação requer autenticação de usuário;
 7. Somente usuários com papel de administrador podem cadastrar novas pessoas no banco de dados.
 
@@ -34,6 +34,7 @@ Durante o desenvolvimento do projeto foi possível ter contato e praticar:
 - implementação de segurança com Spring Security;
 - implementação de papéis de usuários com Spring Security;
 - apresentação ou ocultamento de partes de uma estrutura em html com base no papel do usuário que está logado no sistema;
+- consumo de APIs externas (utilizamos a API viacep para consumir dados do CEP fornecido);
 - dentre outros.
 
 ### Estrutura do backend
@@ -53,3 +54,5 @@ A página de cadastro de pessoas está estruturada com um formulário que captur
 Na página de cadastro de pessoas é possível solicitar a visualização de todas as pessoas cadastradas no banco de dados. A apresentação das pessoas cadastradas é realizada através de uma tabela carregada abaixo do formulário de cadastro de uma nova pessoa. Além disso, existe uma opção de realizar pesquisa pelo primeiro nome de uma pessoa. Isso permite a verificação e fácil localização de uma pessoa previamente cadastrada. Se o usuário logado no sistema não tiver papel de administrador, essas duas serão as únicas opções possíveis de interação com o sistema.
 
 O primeiro nome de cada pessoa cadastrada é exibido na tabela de visualização como um link para a página de detalhes dessa pessoa. Nessa página é possível realizar o cadastro do telefone da pessoa selecionada e visualizar todos os dados registrados. Usuários que não são administradores podem acessar a página de detalhes dos usuários e alterar os dados. Eles só não podem registrar novas pessoas no banco de dados.
+
+Na página de detalhes também é possível visualizar o endereço registrado para a pessoa cadastrada, bem como editar ou inserir um novo endereço. O formulário de cadastro de endereço consome dados de uma API externa (ViaCep) para preenchimento automático das informações a partir do CEP informado.
